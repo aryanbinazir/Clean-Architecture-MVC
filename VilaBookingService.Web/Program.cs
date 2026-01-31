@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using VilaBookingService.Infrastructure.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<VilaBookingContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("VilaBookingDB")));
 
 var app = builder.Build();
 

@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="VilaBookingService.Application/VilaBookingService.Application.csproj" Id="8a25ba1e-b0b7-41ba-a831-5ea54581f525" />
+  <Project Path="VilaBookingService.Domain/VilaBookingService.Domain.csproj" Id="6bcc922a-491c-4e83-a5da-074d3cb28891" />
+  <Project Path="VilaBookingService.Infrastructure/VilaBookingService.Infrastructure.csproj" Id="66565f49-79b5-45b0-8930-f02accc09257" />
   <Project Path="VilaBookingService.Web/VilaBookingService.Web.csproj" />
 </Solution>
