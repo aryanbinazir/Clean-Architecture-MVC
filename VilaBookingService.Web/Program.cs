@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 using VilaBookingService.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);

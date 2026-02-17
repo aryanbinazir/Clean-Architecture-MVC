@@ -24,9 +24,11 @@ namespace VilaBookingService.Infrastructure.Migrations
 
             modelBuilder.Entity("VilaBookingService.Domain.Entities.Vila", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -44,8 +46,8 @@ namespace VilaBookingService.Infrastructure.Migrations
                     b.Property<int>("Occupancy")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Sqft")
                         .HasColumnType("int");

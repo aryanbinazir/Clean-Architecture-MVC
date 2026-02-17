@@ -22,4 +22,8 @@
     <ProjectReference Include="..\VilaBookingService.Domain\VilaBookingService.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
