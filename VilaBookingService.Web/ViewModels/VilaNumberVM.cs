@@ -1,0 +1,15 @@
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
+using VilaBookingService.Domain.Entities;
+
+namespace VilaBookingService.Web.ViewModels
+{
+    public class VilaNumberVM
+    {
+        public VilaNumber? VilaNumber { get; set; }
+
+        [ValidateNever]
+        public IEnumerable<SelectListItem>? VilaList { get; set; }
+    }
+}

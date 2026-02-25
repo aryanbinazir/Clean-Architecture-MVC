@@ -1,5 +1,8 @@
+
 using Microsoft.EntityFrameworkCore;
+using VilaBookingService.Application.Common.Interfaces;
 using VilaBookingService.Infrastructure.Data;
+using VilaBookingService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,10 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<VilaBookingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VilaBookingDB")));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -23,6 +30,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

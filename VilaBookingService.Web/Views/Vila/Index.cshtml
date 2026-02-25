@@ -25,6 +25,9 @@
                     <th>Price</th>
                     <th>Sqft</th>
                     <th>Occupancy</th>
+                    <th>Vila Number Count</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,6 +39,12 @@
                         <td>@obj.Price</td>
                         <td>@obj.Sqft</td>
                         <td>@obj.Occupancy</td>
+                        <td>@obj.VilaNumbers.Count@if(obj.VilaNumbers.Count > 0) 
+                            {
+                                <a asp-controller="VilaNumber" asp-action="IndexById" asp-route-vilaId="@obj.Id"> (See More)</a>
+                            }</td>
+                        <td>@obj.CreatedAt</td>
+                        <td>@obj.UpdatedAt</td>
                         <td>
                             <div class="w-75 btn-group" role="group">
                                 <a asp-controller="Vila" asp-action="Update" asp-route-vilaId="@obj.Id"
