@@ -26,6 +26,7 @@
                     <th>Sqft</th>
                     <th>Occupancy</th>
                     <th>Vila Number Count</th>
+                    <th>Amenities</th>
                     <th>Created At</th>
                     <th>Updated At</th>
                     <th></th>
@@ -42,7 +43,13 @@
                         <td>@obj.VilaNumbers.Count@if(obj.VilaNumbers.Count > 0) 
                             {
                                 <a asp-controller="VilaNumber" asp-action="IndexById" asp-route-vilaId="@obj.Id"> (See More)</a>
-                            }</td>
+                            }
+                        </td>
+                        <td>@obj.Amenities.Count@if(obj.Amenities.Count > 0) 
+                            {
+                                <a asp-controller="Amenity" asp-action="IndexById" asp-route-vilaId="@obj.Id"> (See More)</a>
+                            }
+                        </td>
                         <td>@obj.CreatedAt</td>
                         <td>@obj.UpdatedAt</td>
                         <td>

@@ -14,7 +14,7 @@ namespace VilaBookingService.Web.Controllers
 
         public IActionResult Index()
         {
-            var vilas = _unitOfWork.Vila.GetAll(includeProperties: nameof(Vila.VilaNumbers));
+            var vilas = _unitOfWork.Vila.GetAll(includeProperties: $"{nameof(Vila.VilaNumbers)},{nameof(Vila.Amenities)}");
             return View(vilas);
         }
 

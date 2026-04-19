@@ -30,5 +30,6 @@ namespace VilaBookingService.Domain.Entities
 
         // Relations
         public ICollection<VilaNumber> VilaNumbers { get; set; } = new List<VilaNumber>();
+        public ICollection<Amenity> Amenities { get; set; } = new List<Amenity>();
     }
 }

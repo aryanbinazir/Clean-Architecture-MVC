@@ -1,13 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-using VilaBookingService.Application.Common.Interfaces;
+﻿using VilaBookingService.Application.Common.Interfaces;
 using VilaBookingService.Domain.Entities;
 using VilaBookingService.Infrastructure.Data;
 
@@ -19,7 +10,7 @@ namespace VilaBookingService.Infrastructure.Repositories
 
         public void Update(Vila entity)
         {
-            _context.Update(entity);
+            _context.Vilas.Update(entity);
         }
     }
 }

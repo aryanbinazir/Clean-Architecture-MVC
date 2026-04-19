@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VilaBookingService.Application.Common.Interfaces;
+﻿using VilaBookingService.Application.Common.Interfaces;
 using VilaBookingService.Domain.Entities;
 using VilaBookingService.Infrastructure.Data;
 
 namespace VilaBookingService.Infrastructure.Repositories
 {
-    public class VilaNumberRepository(VilaBookingContext context) : BaseRepository<VilaNumber>(context), IVilaNumberRepository
+    public class AmenityRepository(VilaBookingContext context) : BaseRepository<Amenity>(context), IAmenityRepository
     {
         private readonly VilaBookingContext _context = context;
-        public void Update(VilaNumber enity)
+        public void Update(Amenity enity)
         {
-            _context.Update(enity);
+            _context.Amenities.Update(enity);
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VilaBookingService.Application.Common.Interfaces;
+﻿using VilaBookingService.Application.Common.Interfaces;
 using VilaBookingService.Infrastructure.Data;
 
 namespace VilaBookingService.Infrastructure.Repositories
@@ -13,6 +8,7 @@ namespace VilaBookingService.Infrastructure.Repositories
         private readonly VilaBookingContext _context = context;
         public IVilaRepository Vila { get; private set; } = new VilaRepository(context);
         public IVilaNumberRepository VilaNumber { get; private set; } = new VilaNumberRepository(context);
+        public IAmenityRepository Amenity { get; private set; } = new AmenityRepository(context);
         public void Save()
         {
             _context.SaveChanges();

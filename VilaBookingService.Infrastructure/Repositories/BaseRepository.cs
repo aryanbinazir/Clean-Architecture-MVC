@@ -1,12 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using VilaBookingService.Application.Common.Interfaces;
-using VilaBookingService.Domain.Entities;
 using VilaBookingService.Infrastructure.Data;
 
 namespace VilaBookingService.Infrastructure.Repositories
@@ -59,7 +53,7 @@ namespace VilaBookingService.Infrastructure.Repositories
             }
             if (includeProperties is not null)
             {
-                //Villa,VillaNumber -- case sensitive
+                //Vila,VilaNumber -- case sensitive
                 foreach (var includeProp in includeProperties
                     .Split([','], StringSplitOptions.RemoveEmptyEntries))
                 {
