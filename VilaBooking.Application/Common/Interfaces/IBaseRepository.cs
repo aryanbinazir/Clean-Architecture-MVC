@@ -1,0 +1,14 @@
+﻿using System.Linq.Expressions;
+
+namespace VilaBooking.Application.Common.Interfaces
+{
+    public interface IBaseRepository<T> where T : class
+    {
+        IEnumerable<T> GetAll(Expression<Func<T, bool>>? filter = null, string? includeProperties = null);
+        T Get(Expression<Func<T, bool>> filter, string? includeProperties = null);
+        void Add(T entity);
+        void Remove(T entity);
+        bool Any(Expression<Func<T, bool>> filter);
+    }
+}
+
