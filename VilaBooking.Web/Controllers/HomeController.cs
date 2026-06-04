@@ -1,21 +1,28 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using VilaBooking.Application.Common.Interfaces;
 using VilaBooking.Web.Models;
+using VilaBooking.Web.ViewModels;
 
 namespace VilaBooking.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IUnitOfWork _unitOfWork;
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;   
         }
 
         public IActionResult Index()
         {
-            return View();
+            HomeVM homeVM = new()
+            {
+                VilaList = _unitOfWork.Vila.GetAll(includeProperties: "Amenities, VilaNumbers"),
+                CheckInDate = DateOnly.FromDateTime(DateTime.Now),
+                Nights = 1
+            }; 
+            return View(homeVM);
         }
 
         public IActionResult Privacy()
@@ -23,7 +30,7 @@ namespace VilaBooking.Web.Controllers
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult Error() 
         {
             return View();
         }

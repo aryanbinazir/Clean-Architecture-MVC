@@ -38,7 +38,7 @@ namespace VilaBooking.Infrastructure.Repositories
                 foreach (var includeProp in includeProperties
                     .Split([','], StringSplitOptions.RemoveEmptyEntries))
                 {
-                    query = query.Include(includeProp);
+                    query = query.Include(includeProp.Trim());
                 }
             }
             return query.FirstOrDefault();
@@ -57,7 +57,7 @@ namespace VilaBooking.Infrastructure.Repositories
                 foreach (var includeProp in includeProperties
                     .Split([','], StringSplitOptions.RemoveEmptyEntries))
                 {
-                    query = query.Include(includeProp);
+                    query = query.Include(includeProp.Trim());
                 }
             }
             return query.ToList();
