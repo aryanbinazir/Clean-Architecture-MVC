@@ -1,6 +1,7 @@
-
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using VilaBooking.Application.Common.Interfaces;
+using VilaBooking.Domain.Entities;
 using VilaBooking.Infrastructure.Data;
 using VilaBooking.Infrastructure.Repositories;
 
@@ -12,6 +13,19 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<VilaBookingContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("VilaBookingDB")));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<VilaBookingContext>();
+
+builder.Services.Configure<IdentityOptions>(option =>
+{
+    option.Password.RequiredLength = 6;
+    option.Password.RequireUppercase = false;
+    option.Password.RequireUppercase = false;
+    option.Password.RequireLowercase = false;
+    option.Password.RequireNonAlphanumeric = false;
+
+});
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();

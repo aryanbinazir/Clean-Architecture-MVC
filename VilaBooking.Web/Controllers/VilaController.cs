@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using VilaBooking.Application.Common.Interfaces;
+using VilaBooking.Application.Common.Utility;
 using VilaBooking.Domain.Entities;
 using VilaBooking.Infrastructure.Data;
 
 namespace VilaBooking.Web.Controllers
 {
+    [Authorize]
     public class VilaController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment) : Controller
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork;

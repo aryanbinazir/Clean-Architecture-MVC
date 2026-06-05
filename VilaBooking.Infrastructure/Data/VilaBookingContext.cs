@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace VilaBooking.Infrastructure.Data
 {
-    public class VilaBookingContext(DbContextOptions<VilaBookingContext> options) : DbContext(options)
+    public class VilaBookingContext(DbContextOptions<VilaBookingContext> options) : IdentityDbContext<User>(options)
     {
         public DbSet<Vila> Vilas { get; set; }
         public DbSet<VilaNumber> VilaNumbers { get; set; }
         public DbSet<Amenity> Amenities { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
